@@ -1,0 +1,47 @@
+<a href="#!" class="scrollToBottom" id="scrollToBottom"></a>
+<style>
+  .scrollToBottom {
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    z-index: 100;
+    background: #ccc;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: opacity 0.6s;
+  }
+  .scrollToBottom:before {
+    content: '';
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 10px;
+    transform: rotate(45deg);
+    position: relative;
+    top: -4px;
+  }
+  .scrollToBottom:hover {
+    opacity: 0.85;
+  }
+</style>
+<script>
+  document.getElementById('scrollToBottom').addEventListener('click', () => {
+    window.scrollTo({ 
+      left: 0, 
+      top: document.body.scrollHeight, 
+      behavior: "smooth" 
+    });
+  });
+window.onscroll = () => {
+    if(window.innerHeight + window.scrollY > document.body.scrollHeight - 20 ) {
+      document.getElementById('scrollToBottom').style.display = 'none';
+    }
+    else {
+      document.getElementById('scrollToBottom').style.display = '';
+    }
+  }
+</script>
