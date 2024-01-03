@@ -5,6 +5,7 @@
             const img = document.createElement('img');
             img.src = imgSrc;
             img.alt = link.querySelector('strong').innerText;
+            img.style.maxWidth = '100%';
             link.replaceWith(img);
         }	
     })	
